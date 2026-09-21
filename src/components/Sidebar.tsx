@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Sparkles, FolderVideo, CreditCard, Play } from "lucide-react";
+import { LayoutDashboard, Sparkles, Video, CreditCard, Play } from "lucide-react";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Create Ad", href: "/create", icon: Sparkles },
-  { name: "My Ads", href: "/library", icon: FolderVideo },
+  { name: "My Ads", href: "/library", icon: Video },
   { name: "Billing & Settings", href: "/billing", icon: CreditCard },
 ];
 
