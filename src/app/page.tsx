@@ -6,7 +6,7 @@ export default function Page() {
           <button
             type="button"
             className="rounded-md p-2 text-gray-500 hover:bg-foreground/[.05] hover:text-gray-900"
-            ariaLabel="Open navigation"
+            aria-label="Open navigation"
             data-testid="button-open-navigation"
           >
             <svg
@@ -20,7 +20,7 @@ export default function Page() {
               strokeLinecap="round"
               strokeLinejoin="round"
               className="lucide lucide-menu"
-              ariaHidden={true}
+              aria-hidden="true"
             >
               <path d="M4 5h16"></path>
               <path d="M4 12h16"></path>
@@ -43,7 +43,7 @@ export default function Page() {
           <button
             type="button"
             className="rounded-md p-2 text-gray-500 hover:bg-foreground/[.05] hover:text-gray-900"
-            ariaLabel="Notifications"
+            aria-label="Notifications"
             data-testid="button-mobile-notifications"
           >
             <svg
@@ -57,7 +57,7 @@ export default function Page() {
               strokeLinecap="round"
               strokeLinejoin="round"
               className="lucide lucide-bell"
-              ariaHidden={true}
+              aria-hidden="true"
             >
               <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
               <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
@@ -89,7 +89,7 @@ export default function Page() {
               </div>
               <nav
                 className="mt-3 flex flex-1 flex-col gap-1"
-                ariaLabel="Main navigation"
+                aria-label="Main navigation"
               >
                 <a
                   data-testid="link-nav-dashboard"
@@ -107,7 +107,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-layout-dashboard"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <rect width="7" height="9" x="3" y="3" rx="1"></rect>
                     <rect width="7" height="5" x="14" y="3" rx="1"></rect>
@@ -133,7 +133,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-wand-sparkles"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path>
                     <path d="m14 7 3 3"></path>
@@ -163,7 +163,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-folder-open"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"></path>
                   </svg>
@@ -185,7 +185,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-settings"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path>
                     <circle cx="12" cy="12" r="3"></circle>
@@ -231,7 +231,7 @@ export default function Page() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-arrow-right"
-                      ariaHidden={true}
+                      aria-hidden="true"
                     >
                       <path d="M5 12h14"></path>
                       <path d="m12 5 7 7-7 7"></path>
@@ -253,7 +253,7 @@ export default function Page() {
                   <button
                     type="button"
                     className="text-gray-500 transition-colors hover:text-gray-900"
-                    ariaLabel="Open profile menu"
+                    aria-label="Open profile menu"
                     data-testid="button-profile-menu"
                   >
                     <svg
@@ -267,7 +267,7 @@ export default function Page() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-ellipsis"
-                      ariaHidden={true}
+                      aria-hidden="true"
                     >
                       <circle cx="12" cy="12" r="1"></circle>
                       <circle cx="19" cy="12" r="1"></circle>
@@ -296,7 +296,7 @@ export default function Page() {
                   <button
                     type="button"
                     className="relative text-gray-500 transition-colors hover:text-gray-900"
-                    ariaLabel="Notifications"
+                    aria-label="Notifications"
                     data-testid="button-notifications"
                   >
                     <svg
@@ -310,7 +310,7 @@ export default function Page() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-bell"
-                      ariaHidden={true}
+                      aria-hidden="true"
                     >
                       <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
                       <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
@@ -336,7 +336,7 @@ export default function Page() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-chevron-down"
-                      ariaHidden={true}
+                      aria-hidden="true"
                     >
                       <path d="m6 9 6 6 6-6"></path>
                     </svg>
@@ -369,12 +369,12 @@ export default function Page() {
               <div
                 className="flex w-full max-w-[640px] gap-1 rounded-xl border border-gray-200/70 bg-white/70 p-1"
                 role="tablist"
-                ariaLabel="Ad creation mode"
+                aria-label="Ad creation mode"
               >
                 <button
                   type="button"
                   role="tab"
-                  ariaSelected={true}
+                  aria-selected="true"
                   data-testid="tab-service-business"
                   className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 bg-gray-100 text-gray-900 shadow-[inset_0_0_0_1px_hsl(var(--border))]"
                 >
@@ -390,7 +390,7 @@ export default function Page() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-clapperboard"
-                      ariaHidden={true}
+                      aria-hidden="true"
                     >
                       <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"></path>
                       <path d="m6.2 5.3 3.1 3.9"></path>
@@ -417,7 +417,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-check ml-auto text-indigo-600"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <path d="M20 6 9 17l-5-5"></path>
                   </svg>
@@ -425,7 +425,7 @@ export default function Page() {
                 <button
                   type="button"
                   role="tab"
-                  ariaSelected={false}
+                  aria-selected="false"
                   data-testid="tab-ecommerce-product"
                   className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 text-gray-500 hover:text-gray-900"
                 >
@@ -441,7 +441,7 @@ export default function Page() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-image"
-                      ariaHidden={true}
+                      aria-hidden="true"
                     >
                       <rect
                         width="18"
@@ -497,7 +497,7 @@ export default function Page() {
                           placeholder="e.g. Boutique fitness studio"
                           data-testid="input-business-type"
                           className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
-                          value=""
+                          defaultValue=""
                         />
                       </label>
                       <label className="block">
@@ -511,7 +511,7 @@ export default function Page() {
                           placeholder="e.g. Your strongest hour starts here"
                           data-testid="input-offer-hook"
                           className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
-                          value=""
+                          defaultValue=""
                         />
                       </label>
                       <label className="block">
@@ -522,7 +522,7 @@ export default function Page() {
                           placeholder="e.g. Silver Lake, Los Angeles"
                           data-testid="input-city-location"
                           className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
-                          value=""
+                          defaultValue=""
                         />
                       </label>
                     </div>
@@ -540,7 +540,7 @@ export default function Page() {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className="lucide lucide-sparkles"
-                            ariaHidden={true}
+                            aria-hidden="true"
                           >
                             <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
                             <path d="M20 2v4"></path>
@@ -576,7 +576,7 @@ export default function Page() {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           className="lucide lucide-wand-sparkles"
-                          ariaHidden={true}
+                          aria-hidden="true"
                         >
                           <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path>
                           <path d="m14 7 3 3"></path>
@@ -599,7 +599,7 @@ export default function Page() {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           className="lucide lucide-arrow-right transition-transform group-hover:translate-x-0.5"
-                          ariaHidden={true}
+                          aria-hidden="true"
                         >
                           <path d="M5 12h14"></path>
                           <path d="m12 5 7 7-7 7"></path>
@@ -629,7 +629,7 @@ export default function Page() {
                       <div className="flex items-center gap-1">
                         <button
                           type="button"
-                          ariaLabel="Play preview"
+                          aria-label="Play preview"
                           data-testid="button-preview-play"
                           className="rounded-md p-2 text-gray-500 transition-colors hover:bg-foreground/[.06] hover:text-gray-900"
                         >
@@ -644,14 +644,14 @@ export default function Page() {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className="lucide lucide-play"
-                            ariaHidden={true}
+                            aria-hidden="true"
                           >
                             <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
                           </svg>
                         </button>
                         <button
                           type="button"
-                          ariaLabel="Mute preview"
+                          aria-label="Mute preview"
                           data-testid="button-preview-mute"
                           className="rounded-md p-2 text-gray-500 transition-colors hover:bg-foreground/[.06] hover:text-gray-900"
                         >
@@ -666,7 +666,7 @@ export default function Page() {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className="lucide lucide-volume2 lucide-volume-2"
-                            ariaHidden={true}
+                            aria-hidden="true"
                           >
                             <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path>
                             <path d="M16 9a5 5 0 0 1 0 6"></path>
@@ -675,7 +675,7 @@ export default function Page() {
                         </button>
                         <button
                           type="button"
-                          ariaLabel="More preview options"
+                          aria-label="More preview options"
                           data-testid="button-preview-options"
                           className="rounded-md p-2 text-gray-500 transition-colors hover:bg-foreground/[.06] hover:text-gray-900"
                         >
@@ -690,7 +690,7 @@ export default function Page() {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className="lucide lucide-ellipsis"
-                            ariaHidden={true}
+                            aria-hidden="true"
                           >
                             <circle cx="12" cy="12" r="1"></circle>
                             <circle cx="19" cy="12" r="1"></circle>
@@ -738,7 +738,7 @@ export default function Page() {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 className="lucide lucide-play"
-                                ariaHidden={true}
+                                aria-hidden="true"
                               >
                                 <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
                               </svg>
@@ -771,7 +771,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-gauge text-indigo-600"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <path d="m12 14 4-4"></path>
                     <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
@@ -797,7 +797,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-music2 lucide-music-2 text-pink-500"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <circle cx="8" cy="18" r="4"></circle>
                     <path d="M12 18V2l7 4"></path>
@@ -823,7 +823,7 @@ export default function Page() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-message-square text-[#71e3b2]"
-                    ariaHidden={true}
+                    aria-hidden="true"
                   >
                     <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path>
                   </svg>
@@ -843,7 +843,7 @@ export default function Page() {
       </div>
       <div
         role="region"
-        ariaLabel="Notifications (F8)"
+        aria-label="Notifications (F8)"
         tabIndex="-1"
         style={{ pointerEvents: "none" }}
       >
