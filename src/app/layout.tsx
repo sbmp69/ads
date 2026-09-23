@@ -21,7 +21,7 @@ export default function RootLayout({
       >
         <>
           <div className="noise-overlay min-h-[100dvh] bg-cyber-surface/50">
-            <header className="flex h-16 items-center justify-between border-b border-cyber-cyan/20/70 bg-gray-50 px-4 md:hidden">
+            <header className="flex h-16 items-center justify-between border-b border-cyber-cyan/20/70 bg-cyber-surface/50 glass-panel px-4 md:hidden">
               <button
                 type="button"
                 className="rounded-md p-2 text-cyber-muted hover:bg-foreground/[.05] hover:text-cyber-text"
@@ -85,7 +85,7 @@ export default function RootLayout({
             </header>
             <div className="flex min-h-[calc(100dvh-4rem)]">
               <div className="hidden md:block">
-                <aside className="flex h-full w-[248px] shrink-0 flex-col border-r border-cyber-cyan/20/70 bg-gray-50 px-4 py-5">
+                <aside className="flex h-full w-[248px] shrink-0 flex-col border-r border-cyber-cyan/20/70 bg-cyber-surface/50 glass-panel px-4 py-5">
                   <div className="px-3">
                     <a
                       data-testid="link-logo"

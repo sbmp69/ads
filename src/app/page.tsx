@@ -129,7 +129,7 @@ export default function Page() {
             role="tab"
             aria-selected="true"
             data-testid="tab-service-business"
-            className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 bg-gray-100 text-cyber-text shadow-[inset_0_0_0_1px_hsl(var(--border))]"
+            className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 bg-cyber-cyan/20 text-cyber-text shadow-[inset_0_0_0_1px_hsl(var(--border))]"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-md bg-cyber-cyan/15 text-cyber-cyan text-glow">
               <svg
@@ -378,11 +378,11 @@ export default function Page() {
                               {scene.durationSeconds}s
                             </span>
                           </div>
-                          <p className="text-sm text-gray-700 font-medium mb-2">
+                          <p className="text-sm text-white font-medium mb-2">
                             "{scene.videoPrompt}"
                           </p>
                           {scene.textOverlay && (
-                            <div className="inline-block bg-gray-100 text-gray-800 text-xs font-bold px-2 py-1 rounded">
+                            <div className="inline-block bg-cyber-cyan/20 text-cyber-cyan text-glow text-xs font-bold px-2 py-1 rounded">
                               OVERLAY: {scene.textOverlay}
                             </div>
                           )}
