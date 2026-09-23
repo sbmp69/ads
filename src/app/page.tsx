@@ -33,9 +33,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="hidden md:block">
-        
-      </div>
+      <div className="hidden md:block"></div>
       <main className="mx-auto max-w-[1380px] px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
         <div className="animate-rise mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
           <div>
@@ -183,7 +181,7 @@ export default function Page() {
                     placeholder="e.g. Boutique fitness studio"
                     data-testid="input-business-type"
                     className="h-11 w-full rounded-lg border border-gray-300 bg-cyber-surface/30/60 px-3.5 text-[12px] text-cyber-text outline-none transition-all placeholder:text-cyber-muted/55 focus:border-primary/70 focus:bg-cyber-surface/30 focus:ring-2 focus:ring-indigo-600/10"
-                    defaultValue=""
+
                     value={businessType}
                     onChange={(e) => setBusinessType(e.target.value)}
                   />
@@ -199,7 +197,7 @@ export default function Page() {
                     placeholder="e.g. Your strongest hour starts here"
                     data-testid="input-offer-hook"
                     className="h-11 w-full rounded-lg border border-gray-300 bg-cyber-surface/30/60 px-3.5 text-[12px] text-cyber-text outline-none transition-all placeholder:text-cyber-muted/55 focus:border-primary/70 focus:bg-cyber-surface/30 focus:ring-2 focus:ring-indigo-600/10"
-                    defaultValue=""
+
                     value={offer}
                     onChange={(e) => setOffer(e.target.value)}
                   />
@@ -212,7 +210,7 @@ export default function Page() {
                     placeholder="e.g. Silver Lake, Los Angeles"
                     data-testid="input-city-location"
                     className="h-11 w-full rounded-lg border border-gray-300 bg-cyber-surface/30/60 px-3.5 text-[12px] text-cyber-text outline-none transition-all placeholder:text-cyber-muted/55 focus:border-primary/70 focus:bg-cyber-surface/30 focus:ring-2 focus:ring-indigo-600/10"
-                    defaultValue=""
+
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                   />
