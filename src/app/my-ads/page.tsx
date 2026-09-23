@@ -5,7 +5,7 @@ const ads = [
     id: 1,
     title: "Summer Sale Promo",
     date: "Oct 24, 2023",
-    thumbnail: "bg-indigo-100",
+    thumbnail: "bg-cyber-cyan/20",
   },
   {
     id: 2,
@@ -43,13 +43,13 @@ export default function MyAds() {
   return (
     <>
       <div className="hidden md:block">
-        <header className="flex h-[72px] items-center justify-between border-b border-gray-200/60 px-8 lg:px-10">
-          <div className="flex items-center gap-2 text-[11px] text-gray-500">
+        <header className="flex h-[72px] items-center justify-between border-b border-cyber-cyan/30 px-8 lg:px-10">
+          <div className="flex items-center gap-2 text-[11px] text-cyber-muted">
             <span className="font-mono uppercase tracking-[.15em]">
               Workspace
             </span>
             <span className="text-border">/</span>
-            <span className="text-gray-900">My Ads</span>
+            <span className="text-cyber-text font-display">My Ads</span>
           </div>
         </header>
       </div>
@@ -57,13 +57,14 @@ export default function MyAds() {
         <div className="space-y-8">
           <header className="flex items-center justify-between">
             <div>
-              <div className="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.17em] text-indigo-600">
-                <span className="h-px w-5 bg-indigo-600"></span> Library
+              <div className="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.17em] text-cyber-cyan text-glow">
+                <span className="h-px w-5 bg-cyber-cyan text-black"></span>{" "}
+                Library
               </div>
-              <h1 className="text-[30px] font-bold leading-tight tracking-[-.055em] text-gray-900 sm:text-[36px]">
+              <h1 className="text-[30px] font-bold leading-tight tracking-[-.055em] text-cyber-text font-display sm:text-[36px]">
                 My Ads
               </h1>
-              <p className="mt-3 max-w-[490px] text-[12px] leading-relaxed text-gray-500">
+              <p className="mt-3 max-w-[490px] text-[12px] leading-relaxed text-cyber-muted">
                 Manage and download your generated videos.
               </p>
             </div>
@@ -73,25 +74,25 @@ export default function MyAds() {
             {ads.map((ad) => (
               <div
                 key={ad.id}
-                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col"
+                className="glass-panel rounded-xl border border-cyber-cyan/30  overflow-hidden flex flex-col"
               >
                 <div
                   className={`aspect-[9/16] ${ad.thumbnail} relative group flex items-center justify-center cursor-pointer`}
                 >
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-                  <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">
-                    <Play className="w-5 h-5 text-gray-900 fill-gray-900 ml-1" />
+                  <div className="w-12 h-12 glass-panel/90 rounded-full flex items-center justify-center shadow-lg opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">
+                    <Play className="w-5 h-5 text-cyber-text font-display fill-gray-900 ml-1" />
                   </div>
                 </div>
 
-                <div className="p-4 border-t border-gray-200 flex-1 flex flex-col justify-between">
+                <div className="p-4 border-t border-cyber-cyan/30 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-semibold text-gray-900 line-clamp-1">
+                    <h3 className="font-semibold text-cyber-text font-display line-clamp-1">
                       {ad.title}
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">{ad.date}</p>
+                    <p className="text-sm text-cyber-muted mt-1">{ad.date}</p>
                   </div>
-                  <button className="w-full mt-4 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium py-2 rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 text-sm">
+                  <button className="w-full mt-4 glass-panel border border-cyber-cyan/30 hover:bg-gray-50 text-gray-700 font-medium py-2 rounded-lg  transition-colors flex items-center justify-center gap-2 text-sm">
                     <Download className="w-4 h-4" />
                     Download MP4
                   </button>

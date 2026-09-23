@@ -17,14 +17,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen bg-white text-gray-900 antialiased`}
+        className={`${inter.className} min-h-screen bg-cyber-bg text-cyber-text font-sans antialiased`}
       >
         <>
-          <div className="noise-overlay min-h-[100dvh] bg-white">
-            <header className="flex h-16 items-center justify-between border-b border-gray-200/70 bg-gray-50 px-4 md:hidden">
+          <div className="noise-overlay min-h-[100dvh] bg-cyber-surface/50">
+            <header className="flex h-16 items-center justify-between border-b border-cyber-cyan/20/70 bg-gray-50 px-4 md:hidden">
               <button
                 type="button"
-                className="rounded-md p-2 text-gray-500 hover:bg-foreground/[.05] hover:text-gray-900"
+                className="rounded-md p-2 text-cyber-muted hover:bg-foreground/[.05] hover:text-cyber-text"
                 aria-label="Open navigation"
                 data-testid="button-open-navigation"
               >
@@ -51,17 +51,17 @@ export default function RootLayout({
                 href="/"
                 className="group flex items-center gap-3"
               >
-                <span className="relative flex h-8 w-8 items-center justify-center rounded-[10px] bg-indigo-600 text-white shadow-[0_0_22px_hsl(var(--primary)/.22)]">
+                <span className="relative flex h-8 w-8 items-center justify-center rounded-[10px] bg-cyber-cyan text-black shadow-[0_0_22px_hsl(var(--primary)/.22)]">
                   <span className="absolute h-3 w-3 rotate-45 rounded-[3px] border-2 border-primary-foreground/90"></span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-600-foreground"></span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyber-cyan-foreground"></span>
                 </span>
-                <span className="text-[15px] font-bold tracking-[-0.03em] text-gray-900">
-                  Ad<span className="text-indigo-600">Genius</span>
+                <span className="text-[15px] font-bold tracking-[-0.03em] text-cyber-text">
+                  Ad<span className="text-cyber-cyan">Genius</span>
                 </span>
               </a>
               <button
                 type="button"
-                className="rounded-md p-2 text-gray-500 hover:bg-foreground/[.05] hover:text-gray-900"
+                className="rounded-md p-2 text-cyber-muted hover:bg-foreground/[.05] hover:text-cyber-text"
                 aria-label="Notifications"
                 data-testid="button-mobile-notifications"
               >
@@ -85,24 +85,24 @@ export default function RootLayout({
             </header>
             <div className="flex min-h-[calc(100dvh-4rem)]">
               <div className="hidden md:block">
-                <aside className="flex h-full w-[248px] shrink-0 flex-col border-r border-gray-200/70 bg-gray-50 px-4 py-5">
+                <aside className="flex h-full w-[248px] shrink-0 flex-col border-r border-cyber-cyan/20/70 bg-gray-50 px-4 py-5">
                   <div className="px-3">
                     <a
                       data-testid="link-logo"
                       href="/"
                       className="group flex items-center gap-3"
                     >
-                      <span className="relative flex h-8 w-8 items-center justify-center rounded-[10px] bg-indigo-600 text-white shadow-[0_0_22px_hsl(var(--primary)/.22)]">
+                      <span className="relative flex h-8 w-8 items-center justify-center rounded-[10px] bg-cyber-cyan text-black shadow-[0_0_22px_hsl(var(--primary)/.22)]">
                         <span className="absolute h-3 w-3 rotate-45 rounded-[3px] border-2 border-primary-foreground/90"></span>
-                        <span className="h-1.5 w-1.5 rounded-full bg-indigo-600-foreground"></span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-cyber-cyan-foreground"></span>
                       </span>
-                      <span className="text-[15px] font-bold tracking-[-0.03em] text-gray-900">
-                        Ad<span className="text-indigo-600">Genius</span>
+                      <span className="text-[15px] font-bold tracking-[-0.03em] text-cyber-text">
+                        Ad<span className="text-cyber-cyan">Genius</span>
                       </span>
                     </a>
                   </div>
                   <div className="mt-10 px-3">
-                    <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-gray-500/70">
+                    <div className="font-mono text-cyber-cyan text-[9px] uppercase tracking-[0.22em] text-cyber-muted/70">
                       Workspace
                     </div>
                   </div>
@@ -113,7 +113,7 @@ export default function RootLayout({
                     <a
                       data-testid="link-nav-dashboard"
                       href="/dashboard"
-                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 text-gray-500 hover:bg-foreground/[.04] hover:text-gray-900"
+                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 text-cyber-muted hover:bg-foreground/[.04] hover:text-cyber-text"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -138,9 +138,9 @@ export default function RootLayout({
                     <a
                       data-testid="link-nav-create-ad"
                       href="/"
-                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 bg-indigo-600/[.11] text-indigo-600"
+                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 bg-cyber-cyan/[.11] text-cyber-cyan"
                     >
-                      <span className="absolute -left-4 h-5 w-0.5 rounded-r-full bg-indigo-600"></span>
+                      <span className="absolute -left-4 h-5 w-0.5 rounded-r-full bg-cyber-cyan"></span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -164,12 +164,12 @@ export default function RootLayout({
                         <path d="M11 3H9"></path>
                       </svg>
                       <span>Create Ad</span>
-                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-indigo-600 shadow-[0_0_9px_hsl(var(--primary))]"></span>
+                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-cyber-cyan shadow-[0_0_9px_hsl(var(--primary))]"></span>
                     </a>
                     <a
                       data-testid="link-nav-my-ads"
                       href="/my-ads"
-                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 text-gray-500 hover:bg-foreground/[.04] hover:text-gray-900"
+                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 text-cyber-muted hover:bg-foreground/[.04] hover:text-cyber-text"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +191,7 @@ export default function RootLayout({
                     <a
                       data-testid="link-nav-settings-&amp;-billing"
                       href="/settings"
-                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 text-gray-500 hover:bg-foreground/[.04] hover:text-gray-900"
+                      className="group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-[12px] font-semibold transition-all duration-200 text-cyber-muted hover:bg-foreground/[.04] hover:text-cyber-text"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -213,29 +213,29 @@ export default function RootLayout({
                     </a>
                   </nav>
                   <div className="space-y-3">
-                    <div className="rounded-xl border border-gray-200/80 bg-foreground/[.025] p-3.5">
+                    <div className="rounded-xl border border-cyber-cyan/20/80 bg-foreground/[.025] p-3.5">
                       <div className="flex items-center justify-between">
-                        <span className="font-mono text-[9px] uppercase tracking-[.18em] text-gray-500">
+                        <span className="font-mono text-cyber-cyan text-[9px] uppercase tracking-[.18em] text-cyber-muted">
                           Credits
                         </span>
-                        <span className="text-[10px] font-bold text-indigo-600">
+                        <span className="text-[10px] font-bold text-cyber-cyan">
                           Pro
                         </span>
                       </div>
                       <div className="mt-3 flex items-end justify-between">
-                        <span className="font-mono text-[18px] font-medium text-gray-900">
+                        <span className="font-mono text-cyber-cyan text-[18px] font-medium text-cyber-text">
                           32.8
                         </span>
-                        <span className="pb-0.5 text-[10px] text-gray-500">
+                        <span className="pb-0.5 text-[10px] text-cyber-muted">
                           of 50 hrs
                         </span>
                       </div>
                       <div className="mt-2 h-1 overflow-hidden rounded-full bg-border">
-                        <div className="h-full w-[66%] rounded-full bg-indigo-600"></div>
+                        <div className="h-full w-[66%] rounded-full bg-cyber-cyan"></div>
                       </div>
                       <button
                         type="button"
-                        className="mt-3 flex w-full items-center justify-between text-[10px] font-semibold text-gray-500 transition-colors hover:text-indigo-600"
+                        className="mt-3 flex w-full items-center justify-between text-[10px] font-semibold text-cyber-muted transition-colors hover:text-cyber-cyan"
                         data-testid="button-manage-credits"
                       >
                         Manage plan{" "}
@@ -257,21 +257,21 @@ export default function RootLayout({
                         </svg>
                       </button>
                     </div>
-                    <div className="flex items-center gap-3 border-t border-gray-200/60 px-2 pt-4">
+                    <div className="flex items-center gap-3 border-t border-cyber-cyan/20/60 px-2 pt-4">
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[linear-gradient(145deg,hsl(266_70%_60%),hsl(191_85%_45%))] text-[11px] font-bold text-background">
                         JR
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="truncate text-[11px] font-semibold text-gray-900">
+                        <div className="truncate text-[11px] font-semibold text-cyber-text">
                           Jordan Reyes
                         </div>
-                        <div className="truncate text-[10px] text-gray-500">
+                        <div className="truncate text-[10px] text-cyber-muted">
                           jordan@northstar.co
                         </div>
                       </div>
                       <button
                         type="button"
-                        className="text-gray-500 transition-colors hover:text-gray-900"
+                        className="text-cyber-muted transition-colors hover:text-cyber-text"
                         aria-label="Open profile menu"
                         data-testid="button-profile-menu"
                       >

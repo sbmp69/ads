@@ -34,22 +34,22 @@ export default function Page() {
   return (
     <>
       <div className="hidden md:block">
-        <header className="flex h-[72px] items-center justify-between border-b border-gray-200/60 px-8 lg:px-10">
-          <div className="flex items-center gap-2 text-[11px] text-gray-500">
-            <span className="font-mono uppercase tracking-[.15em]">
+        <header className="flex h-[72px] items-center justify-between border-b border-cyber-cyan/30 px-8 lg:px-10">
+          <div className="flex items-center gap-2 text-[11px] text-cyber-muted">
+            <span className="font-mono text-cyber-cyan text-glow uppercase tracking-[.15em]">
               Creative suite
             </span>
             <span className="text-border">/</span>
-            <span className="text-gray-900">New ad</span>
+            <span className="text-cyber-text">New ad</span>
           </div>
           <div className="flex items-center gap-5">
-            <div className="hidden items-center gap-2 text-[10px] text-gray-500 sm:flex">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#71e3b2] shadow-[0_0_8px_#71e3b2]"></span>{" "}
+            <div className="hidden items-center gap-2 text-[10px] text-cyber-muted sm:flex">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyber-green shadow-[0_0_8px_#71e3b2]"></span>{" "}
               All systems operational
             </div>
             <button
               type="button"
-              className="relative text-gray-500 transition-colors hover:text-gray-900"
+              className="relative text-cyber-muted transition-colors hover:text-cyber-text"
               aria-label="Notifications"
               data-testid="button-notifications"
             >
@@ -69,11 +69,11 @@ export default function Page() {
                 <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
                 <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
               </svg>
-              <span className="absolute -right-1 -top-1 h-1.5 w-1.5 rounded-full bg-indigo-600"></span>
+              <span className="absolute -right-1 -top-1 h-1.5 w-1.5 rounded-full bg-cyber-cyan"></span>
             </button>
             <button
               type="button"
-              className="flex items-center gap-2 text-[11px] text-gray-500 transition-colors hover:text-gray-900"
+              className="flex items-center gap-2 text-[11px] text-cyber-muted transition-colors hover:text-cyber-text"
               data-testid="button-header-profile"
             >
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(145deg,hsl(266_70%_60%),hsl(191_85%_45%))] text-[9px] font-bold text-background">
@@ -101,26 +101,26 @@ export default function Page() {
       <main className="mx-auto max-w-[1380px] px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
         <div className="animate-rise mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
           <div>
-            <div className="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.17em] text-indigo-600">
-              <span className="h-px w-5 bg-indigo-600"></span> Create new ad
+            <div className="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.17em] text-cyber-cyan text-glow">
+              <span className="h-px w-5 bg-cyber-cyan"></span> Create new ad
             </div>
-            <h1 className="text-[30px] font-bold leading-tight tracking-[-.055em] text-gray-900 sm:text-[36px]">
+            <h1 className="text-[30px] font-display font-bold leading-tight uppercase tracking-wider text-glow tracking-[-.055em] text-cyber-text sm:text-[36px]">
               Turn a brief into
               <br className="sm:hidden" /> something people feel.
             </h1>
-            <p className="mt-3 max-w-[490px] text-[12px] leading-relaxed text-gray-500">
+            <p className="mt-3 max-w-[490px] text-[12px] leading-relaxed text-cyber-muted">
               Choose a starting point. AdGenius shapes the story, motion, and
               sound — you keep the final say.
             </p>
           </div>
-          <div className="hidden items-center gap-3 font-mono text-[9px] uppercase tracking-[.16em] text-gray-500 lg:flex">
+          <div className="hidden items-center gap-3 font-mono text-cyber-cyan text-glow text-[9px] uppercase tracking-[.16em] text-cyber-muted lg:flex">
             <span>Draft</span>
             <span className="h-px w-8 bg-border"></span>
-            <span className="text-indigo-600">Live canvas</span>
+            <span className="text-cyber-cyan text-glow">Live canvas</span>
           </div>
         </div>
         <div
-          className="flex w-full max-w-[640px] gap-1 rounded-xl border border-gray-200/70 bg-white/70 p-1"
+          className="flex w-full max-w-[640px] gap-1 rounded-xl border border-cyber-cyan/30/70 bg-cyber-surface/30/70 p-1"
           role="tablist"
           aria-label="Ad creation mode"
         >
@@ -129,9 +129,9 @@ export default function Page() {
             role="tab"
             aria-selected="true"
             data-testid="tab-service-business"
-            className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 bg-gray-100 text-gray-900 shadow-[inset_0_0_0_1px_hsl(var(--border))]"
+            className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 bg-gray-100 text-cyber-text shadow-[inset_0_0_0_1px_hsl(var(--border))]"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-indigo-600/15 text-indigo-600">
+            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-cyber-cyan/15 text-cyber-cyan text-glow">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -155,7 +155,7 @@ export default function Page() {
               <span className="block text-[11px] font-bold">
                 Service Business
               </span>
-              <span className="mt-0.5 block text-[10px] text-gray-500">
+              <span className="mt-0.5 block text-[10px] text-cyber-muted">
                 Text to video
               </span>
             </span>
@@ -169,7 +169,7 @@ export default function Page() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="lucide lucide-check ml-auto text-indigo-600"
+              className="lucide lucide-check ml-auto text-cyber-cyan text-glow"
               aria-hidden="true"
             >
               <path d="M20 6 9 17l-5-5"></path>
@@ -180,7 +180,7 @@ export default function Page() {
             role="tab"
             aria-selected="false"
             data-testid="tab-ecommerce-product"
-            className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 text-gray-500 hover:text-gray-900"
+            className="flex flex-1 items-center gap-3 rounded-lg px-3 py-3 text-left transition-all sm:px-4 text-cyber-muted hover:text-cyber-text"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-md bg-foreground/[.04]">
               <svg
@@ -205,7 +205,7 @@ export default function Page() {
               <span className="block text-[11px] font-bold">
                 E-Commerce Product
               </span>
-              <span className="mt-0.5 block text-[10px] text-gray-500">
+              <span className="mt-0.5 block text-[10px] text-cyber-muted">
                 Image to video
               </span>
             </span>
@@ -213,74 +213,76 @@ export default function Page() {
         </div>
         <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(420px,1fr)_minmax(400px,.88fr)]">
           <section
-            className="rounded-xl border border-gray-200/75 bg-white/70 p-5 shadow-[0_20px_70px_hsl(225_40%_3%/.18)] sm:p-7"
+            className="rounded-xl border border-cyber-cyan/30/75 bg-cyber-surface/30/70 p-5 shadow-[0_20px_70px_hsl(225_40%_3%/.18)] sm:p-7"
             data-testid="panel-ad-brief"
           >
-            <div className="mb-7 flex items-center justify-between border-b border-gray-200/60 pb-5">
+            <div className="mb-7 flex items-center justify-between border-b border-cyber-cyan/30 pb-5">
               <div>
-                <h2 className="text-[14px] font-bold tracking-[-.02em] text-gray-900">
+                <h2 className="text-[14px] font-bold tracking-[-.02em] text-cyber-text">
                   Tell us about your business
                 </h2>
-                <p className="mt-1 text-[10px] text-gray-500">
+                <p className="mt-1 text-[10px] text-cyber-muted">
                   The more specific the brief, the sharper the cut.
                 </p>
               </div>
-              <span className="font-mono text-[9px] text-gray-500/60">
+              <span className="font-mono text-cyber-cyan text-glow text-[9px] text-cyber-muted/60">
                 STEP 1 / 2
               </span>
             </div>
             <div className="animate-rise space-y-7">
               <div className="space-y-5">
-                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.16em] text-gray-500">
-                  <span className="font-mono text-indigo-600">01</span>
+                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.16em] text-cyber-muted">
+                  <span className="font-mono text-cyber-cyan text-glow text-cyber-cyan text-glow">
+                    01
+                  </span>
                   <span>Set the scene</span>
                 </div>
                 <label className="block">
-                  <span className="mb-2 flex items-center justify-between text-[11px] font-semibold text-gray-900/90">
+                  <span className="mb-2 flex items-center justify-between text-[11px] font-semibold text-cyber-text/90">
                     Business type
                   </span>
                   <input
                     placeholder="e.g. Boutique fitness studio"
                     data-testid="input-business-type"
-                    className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
+                    className="h-11 w-full rounded-lg border border-gray-300 bg-cyber-surface/30/60 px-3.5 text-[12px] text-cyber-text outline-none transition-all placeholder:text-cyber-muted/55 focus:border-primary/70 focus:bg-cyber-surface/30 focus:ring-2 focus:ring-indigo-600/10"
                     defaultValue=""
                     value={businessType}
                     onChange={(e) => setBusinessType(e.target.value)}
                   />
                 </label>
                 <label className="block">
-                  <span className="mb-2 flex items-center justify-between text-[11px] font-semibold text-gray-900/90">
+                  <span className="mb-2 flex items-center justify-between text-[11px] font-semibold text-cyber-text/90">
                     Offer or hook
-                    <span className="font-normal text-gray-500">
+                    <span className="font-normal text-cyber-muted">
                       Keep it punchy
                     </span>
                   </span>
                   <input
                     placeholder="e.g. Your strongest hour starts here"
                     data-testid="input-offer-hook"
-                    className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
+                    className="h-11 w-full rounded-lg border border-gray-300 bg-cyber-surface/30/60 px-3.5 text-[12px] text-cyber-text outline-none transition-all placeholder:text-cyber-muted/55 focus:border-primary/70 focus:bg-cyber-surface/30 focus:ring-2 focus:ring-indigo-600/10"
                     defaultValue=""
                     value={offer}
                     onChange={(e) => setOffer(e.target.value)}
                   />
                 </label>
                 <label className="block">
-                  <span className="mb-2 flex items-center justify-between text-[11px] font-semibold text-gray-900/90">
+                  <span className="mb-2 flex items-center justify-between text-[11px] font-semibold text-cyber-text/90">
                     City / location
                   </span>
                   <input
                     placeholder="e.g. Silver Lake, Los Angeles"
                     data-testid="input-city-location"
-                    className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
+                    className="h-11 w-full rounded-lg border border-gray-300 bg-cyber-surface/30/60 px-3.5 text-[12px] text-cyber-text outline-none transition-all placeholder:text-cyber-muted/55 focus:border-primary/70 focus:bg-cyber-surface/30 focus:ring-2 focus:ring-indigo-600/10"
                     defaultValue=""
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                   />
                 </label>
               </div>
-              <div className="border-t border-gray-200/60 pt-6">
+              <div className="border-t border-cyber-cyan/30 pt-6">
                 <div className="mb-4 flex items-start gap-3">
-                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-600/10 text-indigo-600">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyber-cyan/10 text-cyber-cyan text-glow">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"
@@ -301,10 +303,10 @@ export default function Page() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold text-gray-900">
+                    <p className="text-[11px] font-semibold text-cyber-text">
                       AI direction
                     </p>
-                    <p className="mt-1 text-[10px] leading-relaxed text-gray-500">
+                    <p className="mt-1 text-[10px] leading-relaxed text-cyber-muted">
                       A cinematic vertical cut with kinetic typography, natural
                       pacing, and a sound bed matched to your audience.
                     </p>
@@ -314,7 +316,7 @@ export default function Page() {
                   type="button"
                   disabled={true}
                   data-testid="button-generate-cinematic-ad"
-                  className="group flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 text-[11px] font-bold text-white transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="group flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-cyber-cyan px-4 text-[11px] font-bold text-white transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -358,21 +360,21 @@ export default function Page() {
                 </button>
 
                 {storyboard && (
-                  <div className="mt-8 p-6 bg-indigo-50 border border-indigo-100 rounded-xl">
-                    <h3 className="text-lg font-bold text-indigo-900 mb-4">
+                  <div className="mt-8 p-6 glass-panel border-cyber-cyan/30 hud-border rounded-xl">
+                    <h3 className="text-lg font-bold text-cyber-cyan font-display uppercase tracking-widest mb-4">
                       Generated Storyboard
                     </h3>
                     <div className="space-y-4">
                       {storyboard.scenes.map((scene: any) => (
                         <div
                           key={scene.sceneNumber}
-                          className="bg-white p-4 rounded-lg shadow-sm border border-indigo-100/50"
+                          className="bg-cyber-surface/30 p-4 rounded-lg  border border-indigo-100/50"
                         >
                           <div className="flex items-center gap-2 mb-2">
-                            <span className="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                            <span className="bg-cyber-cyan text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
                               SCENE {scene.sceneNumber}
                             </span>
-                            <span className="text-xs text-gray-500">
+                            <span className="text-xs text-cyber-muted">
                               {scene.durationSeconds}s
                             </span>
                           </div>
@@ -390,24 +392,26 @@ export default function Page() {
                   </div>
                 )}
 
-                <p className="mt-2 text-center text-[10px] text-gray-500/70">
+                <p className="mt-2 text-center text-[10px] text-cyber-muted/70">
                   Complete the three fields to unlock generation
                 </p>
               </div>
             </div>
           </section>
           <section
-            className="rounded-xl border border-gray-200/75 bg-white/50 p-5 sm:p-7"
+            className="rounded-xl border border-cyber-cyan/30/75 bg-cyber-surface/30/50 p-5 sm:p-7"
             data-testid="panel-ad-preview"
           >
             <div className="animate-rise flex h-full flex-col">
               <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.16em] text-gray-500">
-                    <span className="font-mono text-indigo-600">02</span>
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.16em] text-cyber-muted">
+                    <span className="font-mono text-cyber-cyan text-glow text-cyber-cyan text-glow">
+                      02
+                    </span>
                     <span>Your preview</span>
                   </div>
-                  <p className="mt-2 text-[10px] text-gray-500">
+                  <p className="mt-2 text-[10px] text-cyber-muted">
                     9:16 · 15 sec · 1080p
                   </p>
                 </div>
@@ -416,7 +420,7 @@ export default function Page() {
                     type="button"
                     aria-label="Play preview"
                     data-testid="button-preview-play"
-                    className="rounded-md p-2 text-gray-500 transition-colors hover:bg-foreground/[.06] hover:text-gray-900"
+                    className="rounded-md p-2 text-cyber-muted transition-colors hover:bg-foreground/[.06] hover:text-cyber-text"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -438,7 +442,7 @@ export default function Page() {
                     type="button"
                     aria-label="Mute preview"
                     data-testid="button-preview-mute"
-                    className="rounded-md p-2 text-gray-500 transition-colors hover:bg-foreground/[.06] hover:text-gray-900"
+                    className="rounded-md p-2 text-cyber-muted transition-colors hover:bg-foreground/[.06] hover:text-cyber-text"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -462,7 +466,7 @@ export default function Page() {
                     type="button"
                     aria-label="More preview options"
                     data-testid="button-preview-options"
-                    className="rounded-md p-2 text-gray-500 transition-colors hover:bg-foreground/[.06] hover:text-gray-900"
+                    className="rounded-md p-2 text-cyber-muted transition-colors hover:bg-foreground/[.06] hover:text-cyber-text"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -484,33 +488,33 @@ export default function Page() {
                   </button>
                 </div>
               </div>
-              <div className="preview-scan relative mx-auto aspect-[9/16] w-full max-w-[275px] overflow-hidden rounded-[14px] border border-gray-200/80 shadow-2xl preview-cinematic">
+              <div className="preview-scan relative mx-auto aspect-[9/16] w-full max-w-[275px] overflow-hidden rounded-[14px] border border-cyber-cyan/30/80 shadow-2xl preview-cinematic">
                 <div className="absolute inset-0">
                   <div className="absolute -left-[20%] top-[14%] h-[65%] w-[145%] rotate-[-16deg] bg-[radial-gradient(ellipse_at_center,hsl(266_74%_58%/.65),transparent_62%)] blur-[18px]"></div>
                   <div className="absolute -right-[40%] bottom-[5%] h-[70%] w-[130%] rotate-[15deg] bg-[radial-gradient(ellipse_at_center,hsl(191_90%_53%/.6),transparent_61%)] blur-[19px]"></div>
-                  <div className="absolute left-[12%] top-[27%] h-[28%] w-[76%] rounded-full border border-primary/20 bg-indigo-600/[.06] blur-[1px]"></div>
+                  <div className="absolute left-[12%] top-[27%] h-[28%] w-[76%] rounded-full border border-primary/20 bg-cyber-cyan/[.06] blur-[1px]"></div>
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,9,20,.15),rgba(5,9,20,.02)_35%,rgba(5,9,20,.76)_86%,rgba(5,9,20,.94))]"></div>
                   <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
-                    <span className="font-mono text-[8px] uppercase tracking-[.24em] text-gray-900/70">
+                    <span className="font-mono text-cyber-cyan text-glow text-[8px] uppercase tracking-[.24em] text-cyber-text/70">
                       AdGenius AI
                     </span>
-                    <span className="rounded-full border border-foreground/20 px-2 py-1 font-mono text-[7px] text-gray-900/60">
+                    <span className="rounded-full border border-foreground/20 px-2 py-1 font-mono text-cyber-cyan text-glow text-[7px] text-cyber-text/60">
                       01 / 03
                     </span>
                   </div>
                   <div className="absolute bottom-[12%] left-5 right-5">
                     <div className="mb-2 flex items-center gap-2">
-                      <span className="h-px w-5 bg-indigo-600"></span>
-                      <span className="font-mono text-[8px] uppercase tracking-[.24em] text-indigo-600">
+                      <span className="h-px w-5 bg-cyber-cyan"></span>
+                      <span className="font-mono text-cyber-cyan text-glow text-[8px] uppercase tracking-[.24em] text-cyber-cyan text-glow">
                         Now showing
                       </span>
                     </div>
-                    <h3 className="max-w-[205px] text-[25px] font-bold leading-[1.04] tracking-[-.055em] text-gray-900">
+                    <h3 className="max-w-[205px] text-[25px] font-bold leading-[1.04] tracking-[-.055em] text-cyber-text">
                       Make the moment
                       <br />
                       worth stopping for.
                     </h3>
-                    <div className="mt-5 flex items-center gap-2 text-[9px] text-gray-900/60">
+                    <div className="mt-5 flex items-center gap-2 text-[9px] text-cyber-text/60">
                       <span className="flex h-5 w-5 items-center justify-center rounded-full border border-foreground/25">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -533,10 +537,12 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="mx-auto mt-4 flex w-full max-w-[275px] items-center justify-between text-[9px] text-gray-500">
-                <span className="font-mono">SCENE 01 — HOOK</span>
+              <div className="mx-auto mt-4 flex w-full max-w-[275px] items-center justify-between text-[9px] text-cyber-muted">
+                <span className="font-mono text-cyber-cyan text-glow">
+                  SCENE 01 — HOOK
+                </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#71e3b2]"></span>{" "}
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyber-green"></span>{" "}
                   Ready to preview
                 </span>
               </div>
@@ -544,7 +550,7 @@ export default function Page() {
           </section>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          <div className="flex items-center gap-3 rounded-lg border border-gray-200/60 bg-white/35 px-4 py-3">
+          <div className="flex items-center gap-3 rounded-lg border border-cyber-cyan/30 bg-cyber-surface/30/35 px-4 py-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15"
@@ -555,22 +561,22 @@ export default function Page() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="lucide lucide-gauge text-indigo-600"
+              className="lucide lucide-gauge text-cyber-cyan text-glow"
               aria-hidden="true"
             >
               <path d="m12 14 4-4"></path>
               <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
             </svg>
             <div>
-              <p className="text-[10px] font-semibold text-gray-900">
+              <p className="text-[10px] font-semibold text-cyber-text">
                 Fast iteration
               </p>
-              <p className="mt-0.5 text-[9px] text-gray-500">
+              <p className="mt-0.5 text-[9px] text-cyber-muted">
                 01:42 avg. render
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-3 rounded-lg border border-gray-200/60 bg-white/35 px-4 py-3">
+          <div className="flex items-center gap-3 rounded-lg border border-cyber-cyan/30 bg-cyber-surface/30/35 px-4 py-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15"
@@ -588,15 +594,15 @@ export default function Page() {
               <path d="M12 18V2l7 4"></path>
             </svg>
             <div>
-              <p className="text-[10px] font-semibold text-gray-900">
+              <p className="text-[10px] font-semibold text-cyber-text">
                 Sound matched
               </p>
-              <p className="mt-0.5 text-[9px] text-gray-500">
+              <p className="mt-0.5 text-[9px] text-cyber-muted">
                 12 mood profiles
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-3 rounded-lg border border-gray-200/60 bg-white/35 px-4 py-3">
+          <div className="flex items-center gap-3 rounded-lg border border-cyber-cyan/30 bg-cyber-surface/30/35 px-4 py-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15"
@@ -613,10 +619,10 @@ export default function Page() {
               <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path>
             </svg>
             <div>
-              <p className="text-[10px] font-semibold text-gray-900">
+              <p className="text-[10px] font-semibold text-cyber-text">
                 Built for ads
               </p>
-              <p className="mt-0.5 text-[9px] text-gray-500">
+              <p className="mt-0.5 text-[9px] text-cyber-muted">
                 Hook-first framing
               </p>
             </div>
