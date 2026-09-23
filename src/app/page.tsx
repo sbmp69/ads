@@ -1,4 +1,36 @@
+"use client";
+import { useState } from "react";
 export default function Page() {
+  const [businessType, setBusinessType] = useState("");
+  const [offer, setOffer] = useState("");
+  const [location, setLocation] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [storyboard, setStoryboard] = useState<any>(null);
+
+  const handleGenerate = async () => {
+    if (!businessType) return alert("Please enter a business type.");
+    setIsGenerating(true);
+    setStoryboard(null);
+    try {
+      const res = await fetch("/api/generate-ad", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ businessType, offer, location }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStoryboard(data.storyboard);
+      } else {
+        alert(data.error || "Failed to generate storyboard");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred");
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   return (
     <>
       <div className="hidden md:block">
@@ -212,6 +244,8 @@ export default function Page() {
                     data-testid="input-business-type"
                     className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
                     defaultValue=""
+                    value={businessType}
+                    onChange={(e) => setBusinessType(e.target.value)}
                   />
                 </label>
                 <label className="block">
@@ -226,6 +260,8 @@ export default function Page() {
                     data-testid="input-offer-hook"
                     className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
                     defaultValue=""
+                    value={offer}
+                    onChange={(e) => setOffer(e.target.value)}
                   />
                 </label>
                 <label className="block">
@@ -237,6 +273,8 @@ export default function Page() {
                     data-testid="input-city-location"
                     className="h-11 w-full rounded-lg border border-gray-300 bg-white/60 px-3.5 text-[12px] text-gray-900 outline-none transition-all placeholder:text-gray-500/55 focus:border-primary/70 focus:bg-white focus:ring-2 focus:ring-indigo-600/10"
                     defaultValue=""
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                   />
                 </label>
               </div>
@@ -318,6 +356,40 @@ export default function Page() {
                     <path d="m12 5 7 7-7 7"></path>
                   </svg>
                 </button>
+
+                {storyboard && (
+                  <div className="mt-8 p-6 bg-indigo-50 border border-indigo-100 rounded-xl">
+                    <h3 className="text-lg font-bold text-indigo-900 mb-4">
+                      Generated Storyboard
+                    </h3>
+                    <div className="space-y-4">
+                      {storyboard.scenes.map((scene: any) => (
+                        <div
+                          key={scene.sceneNumber}
+                          className="bg-white p-4 rounded-lg shadow-sm border border-indigo-100/50"
+                        >
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                              SCENE {scene.sceneNumber}
+                            </span>
+                            <span className="text-xs text-gray-500">
+                              {scene.durationSeconds}s
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-700 font-medium mb-2">
+                            "{scene.videoPrompt}"
+                          </p>
+                          {scene.textOverlay && (
+                            <div className="inline-block bg-gray-100 text-gray-800 text-xs font-bold px-2 py-1 rounded">
+                              OVERLAY: {scene.textOverlay}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <p className="mt-2 text-center text-[10px] text-gray-500/70">
                   Complete the three fields to unlock generation
                 </p>
