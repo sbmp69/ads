@@ -20,7 +20,6 @@ export default function RootLayout({
         className={`${inter.className} min-h-screen bg-cyber-bg text-cyber-text font-sans antialiased cyber-scene`}
       >
         <div className="cyber-grid-wrapper">
-          <div className="cyber-grid-ceiling"></div>
           <div className="cyber-grid-floor"></div>
         </div>
         <div className="flex flex-col min-h-screen w-full max-w-[100vw]" >
