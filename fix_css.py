@@ -1,50 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;500;700;900&display=swap');
-@import "tailwindcss";
+with open('src/app/globals.css', 'r', encoding='utf-8') as f:
+    text = f.read()
 
-@theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Orbitron', sans-serif;
-
-  --color-cyber-bg: #0A0A0F;
-  --color-cyber-surface: #0D1117;
-  --color-cyber-cyan: #00F0FF;
-  --color-cyber-purple: #B026FF;
-  --color-cyber-magenta: #FF2E97;
-  --color-cyber-green: #39FF14;
-  --color-cyber-text: #FFFFFF;
-  --color-cyber-muted: #8B92A8;
-}
-
-:root {
-  background-color: var(--color-cyber-bg);
-  color: var(--color-cyber-text);
-}
-
-body {
-  background: radial-gradient(circle at top right, #302B6320, #0A0A0F 60%),
-              radial-gradient(circle at bottom left, #0F0C2930, #0A0A0F 60%);
-  background-color: var(--color-cyber-bg);
-  color: var(--color-cyber-text);
-  min-height: 100vh;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-
-
-/* === CLEAN CYBERPUNK HUD === */
+import re
+text = re.sub(r'/\* === 3D CYBERSPACE ENVIRONMENT === \*/.*', '''/* === CLEAN CYBERPUNK HUD === */
 .cyber-scene {
   min-height: 100vh;
   position: relative;
@@ -125,3 +83,7 @@ body::before {
   border-color: var(--color-cyber-cyan);
   box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1), 0 0 15px rgba(0, 240, 255, 0.2);
 }
+''', text, flags=re.DOTALL)
+
+with open('src/app/globals.css', 'w', encoding='utf-8') as f:
+    f.write(text)

@@ -23,7 +23,7 @@ export default function RootLayout({
           <div className="cyber-grid-ceiling"></div>
           <div className="cyber-grid-floor"></div>
         </div>
-        <div className="flex flex-col min-h-screen" style={{ transformStyle: "preserve-3d", transform: "translateZ(50px)" }}>
+        <div className="flex flex-col min-h-screen w-full max-w-[100vw]" >
           <header className="flex h-16 shrink-0 items-center justify-between glass-panel border-b border-cyber-cyan/30 px-6 z-50">
             {/* Logo */}
             <div className="flex items-center gap-2">
