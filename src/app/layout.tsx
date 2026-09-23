@@ -17,8 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen bg-cyber-bg text-cyber-text font-sans antialiased`}
+        className={`${inter.className} min-h-screen bg-cyber-bg text-cyber-text font-sans antialiased cyber-scene`}
       >
+      <div className="cyber-grid-wrapper">
+        <div className="cyber-grid-ceiling"></div>
+        <div className="cyber-grid-floor"></div>
+      </div>
+
         <>
           <div className="noise-overlay min-h-[100dvh] bg-cyber-surface/50">
             <header className="flex h-16 items-center justify-between border-b border-cyber-cyan/20/70 bg-cyber-surface/50 glass-panel px-4 md:hidden">
