@@ -1,4 +1,11 @@
-import type { Metadata } from "next";
+with open('src/app/layout.tsx', 'r', encoding='utf-8') as f:
+    text = f.read()
+
+# We want to replace the entire <div className="flex h-screen overflow-hidden"... wrapper
+# with a flex-col layout.
+# It's easier to just generate the new layout.tsx code completely.
+
+new_layout = """import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -92,3 +99,7 @@ export default function RootLayout({
     </html>
   );
 }
+"""
+
+with open('src/app/layout.tsx', 'w', encoding='utf-8') as f:
+    f.write(new_layout)

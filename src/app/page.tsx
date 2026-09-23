@@ -34,69 +34,7 @@ export default function Page() {
   return (
     <>
       <div className="hidden md:block">
-        <header className="flex h-[72px] items-center justify-between border-b border-cyber-cyan/30 px-8 lg:px-10">
-          <div className="flex items-center gap-2 text-[11px] text-cyber-muted">
-            <span className="font-mono text-cyber-cyan text-glow uppercase tracking-[.15em]">
-              Creative suite
-            </span>
-            <span className="text-border">/</span>
-            <span className="text-cyber-text">New ad</span>
-          </div>
-          <div className="flex items-center gap-5">
-            <div className="hidden items-center gap-2 text-[10px] text-cyber-muted sm:flex">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyber-green shadow-[0_0_8px_#71e3b2]"></span>{" "}
-              All systems operational
-            </div>
-            <button
-              type="button"
-              className="relative text-cyber-muted transition-colors hover:text-cyber-text"
-              aria-label="Notifications"
-              data-testid="button-notifications"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-bell"
-                aria-hidden="true"
-              >
-                <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
-                <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
-              </svg>
-              <span className="absolute -right-1 -top-1 h-1.5 w-1.5 rounded-full bg-cyber-cyan"></span>
-            </button>
-            <button
-              type="button"
-              className="flex items-center gap-2 text-[11px] text-cyber-muted transition-colors hover:text-cyber-text"
-              data-testid="button-header-profile"
-            >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(145deg,hsl(266_70%_60%),hsl(191_85%_45%))] text-[9px] font-bold text-background">
-                JR
-              </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-down"
-                aria-hidden="true"
-              >
-                <path d="m6 9 6 6 6-6"></path>
-              </svg>
-            </button>
-          </div>
-        </header>
+        
       </div>
       <main className="mx-auto max-w-[1380px] px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
         <div className="animate-rise mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">

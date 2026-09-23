@@ -50,7 +50,7 @@ body::before {
   transform-style: preserve-3d;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .cyber-grid-wrapper {
