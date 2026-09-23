@@ -10,17 +10,20 @@ const openai = new OpenAI({
 const StoryboardSchema = z.object({
   scenes: z.array(z.object({
     sceneNumber: z.number(),
-    videoPrompt: z.string().describe("The prompt to send to the video generation AI (e.g. 'Cinematic slow motion shot of a barista pouring coffee, golden hour, 4k')"),
-    textOverlay: z.string().describe("The punchy text overlay to display on screen for this scene (e.g. 'Your morning starts here')")
-  })).length(3).describe("Exactly 3 scenes making up a 15-second ad.")
+    durationSeconds: z.number().describe("The estimated duration of this scene in seconds (usually 2 to 5 seconds)."),
+    videoPrompt: z.string().describe("The highly descriptive prompt to send to the video generation AI."),
+    textOverlay: z.string().nullable().describe("The punchy text overlay to display on screen, or null if no text is needed.")
+  })).describe("The sequence of scenes making up the video ad.")
 });
 
 export async function POST(req: Request) {
   try {
-    const { businessType, offer, location } = await req.json();
+    const body = await req.json();
+    const { businessType, offer, location, customBrief, targetDuration = 15 } = body;
 
-    if (!businessType) {
-      return NextResponse.json({ error: "Missing businessType" }, { status: 400 });
+    // We allow either a structured brief or a completely custom brief
+    if (!businessType && !customBrief) {
+      return NextResponse.json({ error: "Please provide either business details or a custom brief." }, { status: 400 });
     }
 
     if (!process.env.OPENAI_API_KEY) {
@@ -28,15 +31,23 @@ export async function POST(req: Request) {
     }
 
     const completion = await openai.chat.completions.parse({
-      model: "gpt-4o-mini", // Fast and cheap for this task
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: "You are a master creative director for a high-end advertising agency. Your job is to take a client's brief and write a 3-scene storyboard for a 15-second video ad (5 seconds per scene). For each scene, provide a highly descriptive, cinematic prompt for an AI video generator, and a punchy text overlay that will be animated on screen."
+          content: `You are a master creative director for an advertising agency. Your job is to take a client's brief (which could be structured data or a free-form custom request) and write a highly effective storyboard for an AI-generated video ad.
+          
+          You must determine the optimal number of scenes based on the brief. The total ad duration should be around ${targetDuration} seconds.
+          For each scene, provide:
+          1. The duration of the scene in seconds.
+          2. A highly descriptive, cinematic prompt for the AI video generator (focus on lighting, camera movement, subjects).
+          3. An optional text overlay for kinetic typography (keep it punchy).`
         },
         {
           role: "user",
-          content: `Create a 3-scene storyboard for this business:\nBusiness Type: ${businessType}\nOffer/Hook: ${offer || 'N/A'}\nLocation: ${location || 'N/A'}`
+          content: customBrief 
+            ? `Client's Custom Brief:\n${customBrief}`
+            : `Create a storyboard for this business:\nBusiness Type: ${businessType}\nOffer/Hook: ${offer || 'N/A'}\nLocation: ${location || 'N/A'}`
         }
       ],
       response_format: zodResponseFormat(StoryboardSchema, "storyboard"),
