@@ -17,7 +17,7 @@ export default function Page() {
         // In a real app, this would poll a /api/render-status endpoint
         setRenderJobId(null);
         setVideoUrl(
-          "https://cdn.pixabay.com/video/2023/10/22/186008-876939529_large.mp4",
+          "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
         ); // Cool cinematic placeholder
       }, 8000); // 8 second mock wait for prototype
       return () => clearTimeout(timer);
@@ -377,7 +377,13 @@ export default function Page() {
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                        <button className="bg-white text-black font-bold px-6 py-2 rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-transform">
+                        <a
+                          href={videoUrl || "#"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          download="cinematic_ad.mp4"
+                          className="bg-white text-black font-bold px-6 py-2 rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-transform"
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -394,7 +400,7 @@ export default function Page() {
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                           </svg>
                           Download MP4
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
