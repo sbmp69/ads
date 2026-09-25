@@ -7,6 +7,7 @@ export default function Page() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [storyboard, setStoryboard] = useState<any>(null);
   const [isRendering, setIsRendering] = useState(false);
+  const [renderJobId, setRenderJobId] = useState<string | null>(null);
 
   const handleRender = async () => {
     if (!storyboard) return;
@@ -19,7 +20,7 @@ export default function Page() {
       });
       const data = await res.json();
       if (res.ok) {
-        alert("Render started! Job ID: " + data.jobId);
+        setRenderJobId(data.jobId);
       } else {
         alert(data.error || "Failed to start rendering");
       }
@@ -320,7 +321,42 @@ export default function Page() {
                   </svg>
                 </button>
 
-                {storyboard ? (
+                {renderJobId ? (
+                  <div className="lg:col-span-7 glass-panel rounded-2xl p-8 sticky top-8 flex flex-col items-center justify-center min-h-[500px] text-center">
+                    <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
+                      <div className="absolute inset-0 border-t-2 border-indigo-500 rounded-full animate-spin"></div>
+                      <div className="absolute inset-2 border-r-2 border-purple-500 rounded-full animate-[spin_2s_linear_infinite_reverse]"></div>
+                      <div className="absolute inset-4 border-b-2 border-cyan-400 rounded-full animate-[spin_3s_linear_infinite]"></div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#6366F1"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="animate-pulse"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-display font-bold text-white mb-3">
+                      Rendering Cinematic Ad
+                    </h3>
+                    <p className="text-cyber-muted text-sm max-w-md mb-2">
+                      Higgsfield AI is synthesizing your frames in the cloud.
+                    </p>
+                    <p className="text-cyber-muted/60 text-xs max-w-md">
+                      This usually takes 3-5 minutes. You can leave this page;
+                      we'll notify you when it's ready.
+                    </p>
+                    <div className="mt-8 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-xs font-mono text-indigo-300">
+                      JOB_ID: {renderJobId}
+                    </div>
+                  </div>
+                ) : storyboard ? (
                   <div className="lg:col-span-7 glass-panel rounded-2xl p-8 sticky top-8">
                     <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
                       <h3 className="text-xl font-display font-bold text-white flex items-center gap-2">
