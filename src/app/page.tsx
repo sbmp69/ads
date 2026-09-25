@@ -6,6 +6,30 @@ export default function Page() {
   const [location, setLocation] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [storyboard, setStoryboard] = useState<any>(null);
+  const [isRendering, setIsRendering] = useState(false);
+
+  const handleRender = async () => {
+    if (!storyboard) return;
+    setIsRendering(true);
+    try {
+      const res = await fetch("/api/render-video", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ storyboard }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert("Render started! Job ID: " + data.jobId);
+      } else {
+        alert(data.error || "Failed to start rendering");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred");
+    } finally {
+      setIsRendering(false);
+    }
+  };
 
   const handleGenerate = async () => {
     if (!businessType) return alert("Please enter a business type.");
@@ -250,7 +274,8 @@ export default function Page() {
                 </div>
                 <button
                   type="button"
-                  disabled={true}
+                  disabled={isGenerating || !businessType}
+                  onClick={handleGenerate}
                   data-testid="button-generate-cinematic-ad"
                   className="group flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-cyber-cyan px-4 text-[11px] font-bold text-white transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
                 >
@@ -276,7 +301,7 @@ export default function Page() {
                     <path d="M21 16h-4"></path>
                     <path d="M11 3H9"></path>
                   </svg>{" "}
-                  Generate cinematic ad{" "}
+                  {isGenerating ? "Generating..." : "Generate cinematic ad"}{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -363,7 +388,11 @@ export default function Page() {
                     </div>
 
                     <div className="mt-8 flex gap-4">
-                      <button className="neon-btn flex-1 py-3 text-sm flex items-center justify-center gap-2">
+                      <button
+                        onClick={handleRender}
+                        disabled={isRendering}
+                        className="neon-btn flex-1 py-3 text-sm flex items-center justify-center gap-2 group transition-all hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -374,10 +403,15 @@ export default function Page() {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
+                          className={isRendering ? "animate-spin" : ""}
                         >
-                          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                          {isRendering ? (
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                          ) : (
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                          )}
                         </svg>
-                        RENDER VIDEO
+                        {isRendering ? "RENDERING..." : "RENDER VIDEO"}
                       </button>
                       <button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl px-4 transition-colors">
                         <svg
