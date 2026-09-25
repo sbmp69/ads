@@ -1,22 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;500;700;900&display=swap');
-@import "tailwindcss";
+with open('src/app/globals.css', 'r', encoding='utf-8') as f:
+    text = f.read()
 
-@theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Orbitron', sans-serif;
+import re
 
-  --color-cyber-bg: #0A0A0F;
-  --color-cyber-surface: #0D1117;
-  --color-cyber-cyan: #00F0FF;
-  --color-cyber-purple: #B026FF;
-  --color-cyber-magenta: #FF2E97;
-  --color-cyber-green: #39FF14;
-  --color-cyber-text: #FFFFFF;
-  --color-cyber-muted: #8B92A8;
-}
-
-/* === PREMIUM 3D AI STUDIO === */
+premium_3d = '''/* === PREMIUM 3D AI STUDIO === */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @theme {
@@ -171,3 +158,12 @@ body {
 main {
   perspective: 1200px;
 }
+'''
+
+# We will completely overwrite everything after @theme with our premium 3D design system
+idx = text.find(':root {')
+if idx != -1:
+    text = text[:idx] + premium_3d
+
+with open('src/app/globals.css', 'w', encoding='utf-8') as f:
+    f.write(text)

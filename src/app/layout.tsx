@@ -26,7 +26,7 @@ export default function RootLayout({
           <header className="flex h-16 shrink-0 items-center justify-between glass-panel border-b border-cyber-cyan/30 px-6 z-50">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-cyber-cyan text-black">
+              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-indigo-500 text-black">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -49,17 +49,17 @@ export default function RootLayout({
 
             {/* Horizontal Nav */}
             <nav className="hidden md:flex items-center gap-8">
-              <a href="/dashboard" className="sidebar-link px-3 py-2 text-[13px] font-bold text-cyber-muted hover:text-cyber-cyan">
+              <a href="/dashboard" className="sidebar-link px-3 py-2 text-[13px] font-bold text-cyber-muted hover:text-indigo-400">
                 Dashboard
               </a>
-              <a href="/" className="sidebar-link active px-3 py-2 text-[13px] font-bold text-cyber-cyan text-glow flex items-center gap-2">
+              <a href="/" className="sidebar-link active px-3 py-2 text-[13px] font-bold text-indigo-400 text-glow flex items-center gap-2">
                 Create Ad
-                <span className="h-1.5 w-1.5 rounded-full bg-cyber-cyan shadow-[0_0_9px_#00F0FF]"></span>
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.6)]"></span>
               </a>
-              <a href="/my-ads" className="sidebar-link px-3 py-2 text-[13px] font-bold text-cyber-muted hover:text-cyber-cyan">
+              <a href="/my-ads" className="sidebar-link px-3 py-2 text-[13px] font-bold text-cyber-muted hover:text-indigo-400">
                 My Ads
               </a>
-              <a href="/settings" className="sidebar-link px-3 py-2 text-[13px] font-bold text-cyber-muted hover:text-cyber-cyan">
+              <a href="/settings" className="sidebar-link px-3 py-2 text-[13px] font-bold text-cyber-muted hover:text-indigo-400">
                 Settings
               </a>
             </nav>
@@ -67,14 +67,14 @@ export default function RootLayout({
             {/* Right side Profile & Credits */}
             <div className="flex items-center gap-6">
               <div className="hidden lg:flex items-center gap-3">
-                <span className="font-mono text-[10px] text-cyber-muted tracking-widest uppercase">Credits: <span className="text-cyber-cyan font-bold">32.8/50h</span></span>
+                <span className="font-display text-[10px] text-cyber-muted tracking-widest uppercase">Credits: <span className="text-indigo-400 font-bold">32.8/50h</span></span>
                 <div className="h-1.5 w-16 overflow-hidden rounded-full bg-cyber-surface/50 border border-cyber-cyan/30">
-                  <div className="h-full w-[66%] rounded-full bg-cyber-cyan shadow-[0_0_10px_#00F0FF]"></div>
+                  <div className="h-full w-[66%] rounded-full bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
                 </div>
               </div>
               
               <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyber-cyan text-[11px] font-bold text-black shadow-[0_0_10px_#00F0FF]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-[11px] font-bold text-black shadow-[0_0_15px_rgba(99,102,241,0.6)]">
                   JR
                 </div>
               </div>
