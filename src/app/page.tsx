@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 export default function Page() {
   const [businessType, setBusinessType] = useState("");
   const [offer, setOffer] = useState("");
@@ -8,6 +8,21 @@ export default function Page() {
   const [storyboard, setStoryboard] = useState<any>(null);
   const [isRendering, setIsRendering] = useState(false);
   const [renderJobId, setRenderJobId] = useState<string | null>(null);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+
+  // Simulate polling for the video render status
+  useEffect(() => {
+    if (renderJobId) {
+      const timer = setTimeout(() => {
+        // In a real app, this would poll a /api/render-status endpoint
+        setRenderJobId(null);
+        setVideoUrl(
+          "https://cdn.pixabay.com/video/2023/10/22/186008-876939529_large.mp4",
+        ); // Cool cinematic placeholder
+      }, 8000); // 8 second mock wait for prototype
+      return () => clearTimeout(timer);
+    }
+  }, [renderJobId]);
 
   const handleRender = async () => {
     if (!storyboard) return;
@@ -321,7 +336,69 @@ export default function Page() {
                   </svg>
                 </button>
 
-                {renderJobId ? (
+                {videoUrl ? (
+                  <div className="lg:col-span-7 glass-panel rounded-2xl p-8 sticky top-8 flex flex-col items-center min-h-[500px]">
+                    <div className="flex items-center justify-between w-full mb-8 border-b border-white/10 pb-4">
+                      <h3 className="text-xl font-display font-bold text-white flex items-center gap-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#10B981"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        Cinematic Ad Ready
+                      </h3>
+                      <button
+                        onClick={() => {
+                          setVideoUrl(null);
+                          setStoryboard(null);
+                        }}
+                        className="text-xs font-mono text-cyber-muted hover:text-white transition-colors border border-white/10 px-3 py-1 rounded-md"
+                      >
+                        START NEW
+                      </button>
+                    </div>
+
+                    <div className="w-full max-w-[360px] aspect-[9/16] bg-black rounded-xl overflow-hidden shadow-[0_0_40px_rgba(99,102,241,0.2)] border border-white/10 relative group">
+                      <video
+                        src={videoUrl}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                        <button className="bg-white text-black font-bold px-6 py-2 rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-transform">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                          </svg>
+                          Download MP4
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ) : renderJobId ? (
                   <div className="lg:col-span-7 glass-panel rounded-2xl p-8 sticky top-8 flex flex-col items-center justify-center min-h-[500px] text-center">
                     <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
                       <div className="absolute inset-0 border-t-2 border-indigo-500 rounded-full animate-spin"></div>
