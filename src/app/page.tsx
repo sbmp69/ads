@@ -17,7 +17,7 @@ export default function Page() {
         // In a real app, this would poll a /api/render-status endpoint
         setRenderJobId(null);
         setVideoUrl(
-          "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+          "https://www.w3schools.com/html/mov_bbb.mp4",
         ); // Cool cinematic placeholder
       }, 8000); // 8 second mock wait for prototype
       return () => clearTimeout(timer);
