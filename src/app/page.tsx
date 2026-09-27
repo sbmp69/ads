@@ -23,7 +23,7 @@ export default function Page() {
           const res = await fetch("/api/render-status", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ tasks: renderTasks }),
+            body: JSON.stringify({ tasks: renderTasks, storyboard, language }),
           });
           const data = await res.json();
 
@@ -524,6 +524,14 @@ export default function Page() {
                             <p className="text-sm text-white/80 leading-relaxed font-sans mb-4">
                               {scene.videoPrompt}
                             </p>
+
+                            
+                            {scene.voiceoverText && (
+                              <div className="mt-2 inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-200 text-xs font-bold px-3 py-2 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                                {scene.voiceoverText}
+                              </div>
+                            )}
 
                             {scene.textOverlay && (
                               <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-200 text-xs font-bold px-3 py-2 rounded-lg">

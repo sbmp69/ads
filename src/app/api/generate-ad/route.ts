@@ -22,6 +22,7 @@ const StoryboardSchema = z.object({
           .describe(
             "The highly descriptive prompt to send to the video generation AI.",
           ),
+        voiceoverText: z.string().nullable().describe("The script for the human voiceover to read out loud during this scene. Keep it short and punchy. MUST be in the requested language."),
         textOverlay: z
           .string()
           .nullable()
