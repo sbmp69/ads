@@ -20,8 +20,8 @@ export async function POST(req: Request) {
 
     // Use image-to-video if image is provided, else text-to-video
     const ENDPOINT = assetImage
-      ? "https://api.higgsfield.ai/kling-video/v2.6/pro/image-to-video"
-      : "https://api.higgsfield.ai/kling-video/v2.6/pro/text-to-video";
+      ? "https://api.higgsfield.ai/alibaba/wan-3.0/image-to-video"
+      : "https://api.higgsfield.ai/alibaba/wan-3.0/text-to-video";
 
     const generationPromises = storyboard.scenes.map(async (scene: any) => {
       const payload: any = {
