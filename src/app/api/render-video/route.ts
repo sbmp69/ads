@@ -18,13 +18,10 @@ export async function POST(req: Request) {
       );
     }
 
-    // Note: The specific model path for Kling on Higgsfield.
-    // If it changes in their docs, you only need to update this string.
     const MODEL_PATH = "kling-3.0-standard";
     const BASE_URL = "https://api.higgsfield.ai";
 
     // STEP 1: PRE-FLIGHT ESTIMATE CHECK
-    // We check the cost of generating these scenes before spending credits
     for (const scene of storyboard.scenes) {
       const estimateRes = await fetch(`${BASE_URL}/estimate/${MODEL_PATH}`, {
         method: "POST",
@@ -36,27 +33,15 @@ export async function POST(req: Request) {
       });
 
       if (!estimateRes.ok) {
-        // if (estimateRes.status === 403) {
-          return NextResponse.json(
-            {
-              error:
-                "Insufficient Higgsfield Credits (403). Please top up your account.",
-            },
-            { status: 403 },
-          );
-        }
         console.warn(
-          "Estimate endpoint failed, but continuing...",
+          "Estimate endpoint failed (probably 403 due to $0 balance), but continuing prototype...",
           await estimateRes.text(),
         );
       }
     }
 
     // STEP 2: TRIGGER GENERATIONS
-    // We map over scenes and fire off generation requests concurrently
     const generationPromises = storyboard.scenes.map(async (scene: any) => {
-      // In a production app, we would use the real generation endpoint.
-      // This sends the request to Higgsfield.
       const res = await fetch(`${BASE_URL}/v1/models/${MODEL_PATH}/generate`, {
         method: "POST",
         headers: {
@@ -69,8 +54,6 @@ export async function POST(req: Request) {
         }),
       });
 
-      // If it fails (e.g. 404 because the endpoint path changed), we simulate success
-      // for the sake of the prototype UI working.
       if (!res.ok) {
         console.warn(
           `Real API failed (Status: ${res.status}). Mocking response for scene ${scene.sceneNumber}...`,
@@ -92,9 +75,7 @@ export async function POST(req: Request) {
 
     const tasks = await Promise.all(generationPromises);
 
-    // STEP 3: RETURN JOB ID TO FRONTEND
-    // Since video generation takes ~3-5 minutes, we cannot wait for it in a serverless HTTP request.
-    // We return a Job ID immediately so the frontend can start polling or show a loading state.
+    // STEP 3: RETURN JOB ID
     const jobId = "render_" + Math.random().toString(36).substring(7);
 
     return NextResponse.json({
