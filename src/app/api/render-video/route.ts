@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       });
 
       if (!estimateRes.ok) {
-        if (estimateRes.status === 403) {
+        // if (estimateRes.status === 403) {
           return NextResponse.json(
             {
               error:
