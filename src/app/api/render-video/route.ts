@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     }
 
     const KLING_ENDPOINT =
-      "https://api.higgsfield.ai/kling-video/v3.0/pro/text-to-video";
+      "https://api.higgsfield.ai/kling-video/v2.6/pro/text-to-video";
 
     // STEP 1: TRIGGER GENERATIONS (We skip estimate now since user has balance)
     const generationPromises = storyboard.scenes.map(async (scene: any) => {
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
       jobId,
       tasks,
       message:
-        "Real video generation jobs successfully queued with Higgsfield Kling 3.0!",
+        "Real video generation jobs successfully queued with Higgsfield Kling 2.6!",
     });
   } catch (error) {
     console.error("Render API error:", error);
