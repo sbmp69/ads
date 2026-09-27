@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 export default function Page() {
   const [businessType, setBusinessType] = useState("");
+  const [language, setLanguage] = useState("English");
+  const [assetImage, setAssetImage] = useState<string | null>(null);
+  const [assetDescription, setAssetDescription] = useState("");
   const [offer, setOffer] = useState("");
   const [location, setLocation] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
@@ -55,7 +58,7 @@ export default function Page() {
       const res = await fetch("/api/render-video", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ storyboard }),
+        body: JSON.stringify({ storyboard, assetImage }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -72,6 +75,15 @@ export default function Page() {
     }
   };
 
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setAssetImage(reader.result as string);
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleGenerate = async () => {
     if (!businessType) return alert("Please enter a business type.");
     setIsGenerating(true);
@@ -80,7 +92,14 @@ export default function Page() {
       const res = await fetch("/api/generate-ad", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ businessType, offer, location }),
+        body: JSON.stringify({
+          businessType,
+          offer,
+          location,
+          language,
+          assetImage,
+          assetDescription,
+        }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -530,6 +549,69 @@ export default function Page() {
                         </div>
                       ))}
                     </div>
+
+                    {/* Language Dropdown */}
+                    <div className="space-y-2 mt-4">
+                      <label className="text-xs font-mono text-cyber-muted uppercase tracking-wider">
+                        Language <span className="text-indigo-400">*</span>
+                      </label>
+                      <select
+                        value={language}
+                        onChange={(e) => setLanguage(e.target.value)}
+                        className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                      >
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="French">French</option>
+                        <option value="German">German</option>
+                        <option value="Hindi">Hindi</option>
+                      </select>
+                    </div>
+
+                    {/* Optional Asset Upload */}
+                    <div className="space-y-2 mt-4">
+                      <label className="text-xs font-mono text-cyber-muted uppercase tracking-wider">
+                        Product / Avatar Image (Optional)
+                      </label>
+                      <div className="flex items-center gap-4">
+                        <label className="cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-3 text-sm text-white transition-colors flex-1 text-center">
+                          {assetImage ? "Image Uploaded ✓" : "Upload Image"}
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            className="hidden"
+                          />
+                        </label>
+                        {assetImage && (
+                          <button
+                            onClick={() => {
+                              setAssetImage(null);
+                              setAssetDescription("");
+                            }}
+                            className="text-red-400 hover:text-red-300 text-xs font-mono"
+                          >
+                            Remove
+                          </button>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Asset Description */}
+                    {assetImage && (
+                      <div className="space-y-2 mt-4">
+                        <label className="text-xs font-mono text-cyber-muted uppercase tracking-wider">
+                          Describe the Image
+                        </label>
+                        <input
+                          type="text"
+                          value={assetDescription}
+                          onChange={(e) => setAssetDescription(e.target.value)}
+                          placeholder="e.g. A sleek black protein powder bottle"
+                          className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        />
+                      </div>
+                    )}
 
                     <div className="mt-8 flex gap-4">
                       <button

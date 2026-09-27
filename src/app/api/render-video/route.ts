@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { storyboard } = await req.json();
+    const { storyboard, assetImage } = await req.json();
     if (!storyboard || !storyboard.scenes) {
       return NextResponse.json(
         { error: "No storyboard provided" },
@@ -18,20 +18,29 @@ export async function POST(req: Request) {
       );
     }
 
-    const KLING_ENDPOINT =
-      "https://api.higgsfield.ai/kling-video/v2.6/pro/text-to-video";
+    // Use image-to-video if image is provided, else text-to-video
+    const ENDPOINT = assetImage
+      ? "https://api.higgsfield.ai/kling-video/v2.6/pro/image-to-video"
+      : "https://api.higgsfield.ai/kling-video/v2.6/pro/text-to-video";
 
-    // STEP 1: TRIGGER GENERATIONS (We skip estimate now since user has balance)
     const generationPromises = storyboard.scenes.map(async (scene: any) => {
-      const res = await fetch(KLING_ENDPOINT, {
+      const payload: any = {
+        prompt: scene.videoPrompt,
+        duration: 10, // Maximize the duration for the single clip
+        generate_sound: true, // Enable audio generation natively from Kling!
+      };
+
+      if (assetImage) {
+        payload.image = assetImage; // Base64 or URL
+      }
+
+      const res = await fetch(ENDPOINT, {
         method: "POST",
         headers: {
           Authorization: `Key ${hfCredentials}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          prompt: scene.videoPrompt,
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
@@ -61,15 +70,13 @@ export async function POST(req: Request) {
       );
     }
 
-    // STEP 2: RETURN JOB ID
     const jobId = "render_" + Math.random().toString(36).substring(7);
 
     return NextResponse.json({
       success: true,
       jobId,
       tasks,
-      message:
-        "Real video generation jobs successfully queued with Higgsfield Kling 2.6!",
+      message: "Video generation job successfully queued!",
     });
   } catch (error) {
     console.error("Render API error:", error);
