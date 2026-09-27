@@ -11,7 +11,6 @@ export async function POST(req: Request) {
     if (!hfCredentials) {
       return NextResponse.json({ error: "No keys" }, { status: 500 });
     }
-    const BASE_URL = "https://api.higgsfield.ai";
 
     let allCompleted = true;
     let anyFailed = false;
@@ -19,13 +18,8 @@ export async function POST(req: Request) {
 
     // Check all tasks
     for (const task of tasks) {
-      // Mock tasks return immediately
-      if (task.taskId.startsWith("mock_task")) {
-        completedUrls.push("https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4");
-        continue;
-      }
-
-      const res = await fetch(`${BASE_URL}/requests/${task.taskId}/status`, {
+      // Use the exact status_url returned by Higgsfield
+      const res = await fetch(task.statusUrl, {
         headers: {
           Authorization: `Key ${hfCredentials}`,
         },
@@ -42,31 +36,55 @@ export async function POST(req: Request) {
       if (status === "failed" || status === "nsfw" || status === "canceled") {
         anyFailed = true;
       } else if (status === "completed") {
-        completedUrls.push(data.output_url || (data.outputs && data.outputs[0]?.url));
+        // The output url format might vary based on the API docs, usually it's in output_url or outputs[0].url
+        let finalOutputUrl = null;
+        if (data.output_url) {
+          finalOutputUrl = data.output_url;
+        } else if (data.outputs && data.outputs.length > 0) {
+          finalOutputUrl = data.outputs[0].url || data.outputs[0];
+        } else if (data.url) {
+          finalOutputUrl = data.url;
+        } else if (data.output && data.output.url) {
+          finalOutputUrl = data.output.url;
+        }
+
+        if (finalOutputUrl) {
+          completedUrls.push(finalOutputUrl);
+        } else {
+          console.error("Task completed but could not parse output URL:", data);
+        }
       } else {
         allCompleted = false;
       }
     }
 
     if (anyFailed) {
-      return NextResponse.json({ status: "failed", error: "One or more video segments failed to generate." });
+      return NextResponse.json({
+        status: "failed",
+        error: "One or more video segments failed to generate.",
+      });
     }
 
     if (!allCompleted) {
       return NextResponse.json({ status: "processing" });
     }
 
-    // Since we don't have a backend stitching engine yet (FFmpeg/Remotion),
-    // we will just return the FIRST generated clip so the user can see their
-    // real AI output instantly in the player.
+    if (completedUrls.length === 0) {
+      return NextResponse.json({ status: "processing" }); // Fallback if parsing failed briefly
+    }
+
+    // Return the FIRST real generated clip so the user can see it instantly!
     const finalVideo = completedUrls[0];
-    
+
     return NextResponse.json({
       status: "completed",
       videoUrl: finalVideo,
     });
   } catch (error) {
     console.error("Render status API error:", error);
-    return NextResponse.json({ error: "Failed to check status" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to check status" },
+      { status: 500 },
+    );
   }
 }
