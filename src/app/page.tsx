@@ -8,21 +8,45 @@ export default function Page() {
   const [storyboard, setStoryboard] = useState<any>(null);
   const [isRendering, setIsRendering] = useState(false);
   const [renderJobId, setRenderJobId] = useState<string | null>(null);
+  const [renderTasks, setRenderTasks] = useState<any[]>([]);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
 
-  // Simulate polling for the video render status
+  // Real API Polling for the video render status
   useEffect(() => {
-    if (renderJobId) {
-      const timer = setTimeout(() => {
-        // In a real app, this would poll a /api/render-status endpoint
-        setRenderJobId(null);
-        setVideoUrl(
-          "https://www.w3schools.com/html/mov_bbb.mp4",
-        ); // Cool cinematic placeholder
-      }, 8000); // 8 second mock wait for prototype
-      return () => clearTimeout(timer);
+    let timer: any;
+    if (renderJobId && renderTasks.length > 0) {
+      const pollStatus = async () => {
+        try {
+          const res = await fetch("/api/render-status", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ tasks: renderTasks }),
+          });
+          const data = await res.json();
+
+          if (data.status === "completed" && data.videoUrl) {
+            setRenderJobId(null);
+            setRenderTasks([]);
+            setVideoUrl(data.videoUrl);
+          } else if (data.status === "failed") {
+            setRenderJobId(null);
+            setRenderTasks([]);
+            alert(data.error || "Generation failed.");
+          } else {
+            // Still processing, poll again in 5 seconds
+            timer = setTimeout(pollStatus, 5000);
+          }
+        } catch (err) {
+          console.error(err);
+          timer = setTimeout(pollStatus, 5000);
+        }
+      };
+
+      // Start polling
+      timer = setTimeout(pollStatus, 5000);
     }
-  }, [renderJobId]);
+    return () => clearTimeout(timer);
+  }, [renderJobId, renderTasks]);
 
   const handleRender = async () => {
     if (!storyboard) return;
@@ -36,6 +60,7 @@ export default function Page() {
       const data = await res.json();
       if (res.ok) {
         setRenderJobId(data.jobId);
+        setRenderTasks(data.tasks);
       } else {
         alert(data.error || "Failed to start rendering");
       }
