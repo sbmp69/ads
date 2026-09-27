@@ -18,7 +18,6 @@ export async function POST(req: Request) {
 
     // Check all tasks
     for (const task of tasks) {
-      // Use the exact status_url returned by Higgsfield
       const res = await fetch(task.statusUrl, {
         headers: {
           Authorization: `Key ${hfCredentials}`,
@@ -26,7 +25,6 @@ export async function POST(req: Request) {
       });
 
       if (!res.ok) {
-        // If API fails to return status, we assume it's still running or failed.
         allCompleted = false;
         continue;
       }
@@ -36,9 +34,10 @@ export async function POST(req: Request) {
       if (status === "failed" || status === "nsfw" || status === "canceled") {
         anyFailed = true;
       } else if (status === "completed") {
-        // The output url format might vary based on the API docs, usually it's in output_url or outputs[0].url
         let finalOutputUrl = null;
-        if (data.output_url) {
+        if (data.video && data.video.url) {
+          finalOutputUrl = data.video.url;
+        } else if (data.output_url) {
           finalOutputUrl = data.output_url;
         } else if (data.outputs && data.outputs.length > 0) {
           finalOutputUrl = data.outputs[0].url || data.outputs[0];
@@ -51,7 +50,10 @@ export async function POST(req: Request) {
         if (finalOutputUrl) {
           completedUrls.push(finalOutputUrl);
         } else {
-          console.error("Task completed but could not parse output URL:", data);
+          console.error(
+            "Task completed but could not parse output URL:",
+            JSON.stringify(data),
+          );
         }
       } else {
         allCompleted = false;
@@ -70,10 +72,9 @@ export async function POST(req: Request) {
     }
 
     if (completedUrls.length === 0) {
-      return NextResponse.json({ status: "processing" }); // Fallback if parsing failed briefly
+      return NextResponse.json({ status: "processing" });
     }
 
-    // Return the FIRST real generated clip so the user can see it instantly!
     const finalVideo = completedUrls[0];
 
     return NextResponse.json({
